@@ -13,13 +13,14 @@ knit        : slidify::knit2slides
 ---
 
 ## Pizza Ordering, a Shiny App
+- Calculates the order amount from number and size of the pizza. 
+- Interactive. Responsive.
+- Works on phone, tablet and laptop.
+- Fast and easy to deploy.
 
 For a copy of the Shiny App
-..ul: build
 - URL: *https://tommyho.shinyapps.io/devdataprod-002/*
-- Hosted by **shinyapps.io**
 - GitHub: *https://github.com/tommykho/devdataprod-002/*
-- ShinyApp that calculates the order amount from number of pizza and their size
 - Download code:
 
 ```
