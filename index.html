@@ -32,6 +32,9 @@
     
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/logo.png">
+  </aside>
   <hgroup class="auto-fadein">
     <h1>Pizza Ordering</h1>
     <h2>Reproducible Pitch Presentation</h2>
@@ -44,10 +47,11 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Pizza Ordering, a Shiny App (Slide 1)</h2>
+    <h2>Pizza Ordering, a Shiny App</h2>
   </hgroup>
   <article data-timings="">
-    <p>For a copy of the Shiny App</p>
+    <p>For a copy of the Shiny App
+..ul: build</p>
 
 <ul>
 <li>URL: <em><a href="https://tommyho.shinyapps.io/devdataprod-002/">https://tommyho.shinyapps.io/devdataprod-002/</a></em></li>
@@ -66,91 +70,26 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>ui.R (Slide 2)</h2>
+    <h2>R in action within Slidify (basicconsole)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>library(shiny)
-library(shinyapps)
-
-shinyUI(pageWithSidebar(
-  headerPanel(&quot;Pizza Ordering&quot;),
-  sidebarPanel(
-    numericInput(&#39;mQty&#39;, &#39;Quantity&#39;, 1, min = 1, max = 10, step = 1),
-    radioButtons(&quot;mSize&quot;, &quot;Size&quot;,
-                 c(&quot;6&#39; Personal ($5)&quot; = 5,
-                   &quot;8&#39; Small ($8)&quot; = 8,
-                   &quot;10&#39; Medium ($12)&quot; = 12,
-                   &quot;12&#39; Large ($18)&quot; = 18,
-                   &quot;14&#39; Extra Large ($24)&quot; = 24),
-                 selected = 12),
-    checkboxGroupInput(&quot;mToppings&quot;, &quot;Toppings&quot;,
-          c(&quot;Pepperoni, Classic&quot; = &quot;P&quot;,
-          &quot;Sausage, Italian&quot; = &quot;S&quot;,
-          &quot;Ham&quot; = &quot;H&quot;,
-          &quot;Chicken, Grilled&quot; = &quot;GC&quot;,
-          &quot;Bacon, Pieces&quot; = &quot;BP&quot;,
-          &quot;Olives, Black&quot; = &quot;BO&quot;,
-          &quot;Peppers, Green&quot; = &quot;GP&quot;,
-          &quot;Pineapple&quot; = &quot;PA&quot;)),
-    dateInput(&quot;mDate&quot;, &quot;Pickup Date:&quot;),
-    sliderInput(&quot;mTime&quot;, &quot;Pickup Time (1 - 9 PM):&quot;, 1, 9, 1, step = 1,
-                round = FALSE, format = &quot;#,##0&quot;, locale = &quot;us&quot;,
-                ticks = TRUE, animate = FALSE),
-    actionButton(&quot;mPrint&quot;, label = &quot;Print&quot;)
-  ),
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>server.R (Slide 3)</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code>shinyServer(
-  function(input, output) {
-    output$odate &lt;- reactive({paste(input$mDate,&quot;(&quot;,input$mTime,&quot;PM )&quot;)})    
-    output$oqty &lt;- reactive({input$mQty})
-    output$otoppings &lt;- reactive({input$mToppings})
-    output$osauce &lt;- reactive({input$mSauce})
-    output$osize &lt;- reactive({input$mSize})
-    output$oprint &lt;- reactive({as.numeric(input$mPrint)})
-    output$oamount &lt;- reactive({paste(&quot;$&quot;, input$mQty * as.numeric(input$mSize), 
-                                      &quot;for&quot;, {input$mQty}, &quot;pizza(s)&quot;)})
-  }
-)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>R in action within Slidify (Slide 4)</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>R calculates Medium Pizza Price as table</p>
-
-<pre><code class="r">mQty &lt;- 1:10
-oAmount &lt;- 12 * x
+    <pre><code class="r">mQty &lt;- 1:10
+oAmount &lt;- paste(&#39;$&#39;, 12 * mQty)
 df &lt;- data.frame(mQty, oAmount)
 df
 </code></pre>
 
 <pre><code>##    mQty oAmount
-## 1     1      12
-## 2     2      24
-## 3     3      36
-## 4     4      48
-## 5     5      60
-## 6     6      72
-## 7     7      84
-## 8     8      96
-## 9     9     108
-## 10   10     120
+## 1     1    $ 12
+## 2     2    $ 24
+## 3     3    $ 36
+## 4     4    $ 48
+## 5     5    $ 60
+## 6     6    $ 72
+## 7     7    $ 84
+## 8     8    $ 96
+## 9     9   $ 108
+## 10   10   $ 120
 </code></pre>
 
   </article>
@@ -159,17 +98,29 @@ df
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>R in action within Slidify (Slide 5)</h2>
+    <h2>R in action within Slidify (simpleplot)</h2>
   </hgroup>
   <article data-timings="">
-    <p>R plots Medium Pizza Price as graph</p>
-
-<pre><code class="r">mQty &lt;- 1:10
+    <pre><code class="r">mQty &lt;- 1:10
 oAmount &lt;- 12 * mQty
 plot(mQty, oAmount)
 </code></pre>
 
 <p><img src="assets/fig/simpleplot.png" alt="plot of chunk simpleplot"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>R in action within Slidify (f)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">curve(sin(x), -12.56, 12.56, main = &quot;Sine Wave: 4 Pi&quot;)
+</code></pre>
+
+<p><img src="assets/fig/f1.png" alt="plot of chunk f1"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -181,32 +132,26 @@ plot(mQty, oAmount)
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Pizza Ordering, a Shiny App (Slide 1)'>
+        data-slide=1 title='Pizza Ordering, a Shiny App'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='ui.R (Slide 2)'>
+        data-slide=2 title='R in action within Slidify (basicconsole)'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='server.R (Slide 3)'>
+        data-slide=3 title='R in action within Slidify (simpleplot)'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='R in action within Slidify (Slide 4)'>
+        data-slide=4 title='R in action within Slidify (f)'>
          4
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='R in action within Slidify (Slide 5)'>
-         5
       </a>
     </li>
   </ul>
