@@ -28,7 +28,7 @@ git clone https://github.com/tommykho/devdataprod-002.git
 
 --- .class #id 
 
-## R in action within Slidify (basicconsole)
+## R in action within Slidify (data)
 
 ```r
 mQty <- 1:10
@@ -53,7 +53,7 @@ df
 
 --- .class #id 
 
-## R in action within Slidify (simpleplot)
+## R in action within Slidify (plot)
 
 ```r
 mQty <- 1:10
@@ -61,14 +61,14 @@ oAmount <- 12 * mQty
 plot(mQty, oAmount)
 ```
 
-![plot of chunk simpleplot](assets/fig/simpleplot.png) 
+![plot of chunk plot01](assets/fig/plot01.png) 
 
 --- .class #id 
 
-## R in action within Slidify (f)
+## R in action within Slidify (curve)
 
 ```r
 curve(sin(x), -12.56, 12.56, main = "Sine Wave: 4 Pi")
 ```
 
-![plot of chunk f1](assets/fig/f1.png) 
+![plot of chunk curve01](assets/fig/curve01.png) 

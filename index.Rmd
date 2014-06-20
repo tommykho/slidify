@@ -28,8 +28,8 @@ git clone https://github.com/tommykho/devdataprod-002.git
 
 --- .class #id 
 
-## R in action within Slidify (basicconsole)
-```{r basicconsole}
+## R in action within Slidify (data)
+```{r data01}
 mQty <- 1:10
 oAmount <- paste('$', 12 * mQty)
 df <- data.frame(mQty, oAmount)
@@ -38,8 +38,8 @@ df
 
 --- .class #id 
 
-## R in action within Slidify (simpleplot)
-```{r simpleplot, fig.height=6}
+## R in action within Slidify (plot)
+```{r plot01, fig.height=6}
 mQty <- 1:10
 oAmount <- 12 * mQty
 plot(mQty, oAmount)
@@ -47,7 +47,7 @@ plot(mQty, oAmount)
 
 --- .class #id 
 
-## R in action within Slidify (f)
-```{r f1, fig.height=6}
+## R in action within Slidify (curve)
+```{r curve01, fig.height=6}
 curve(sin(x), -12.56, 12.56, main = "Sine Wave: 4 Pi")
 ```
